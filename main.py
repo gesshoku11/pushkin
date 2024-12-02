@@ -3,7 +3,7 @@ import datetime
 from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, ContextTypes, CommandHandler
 
-from util import send_text
+from util import send_text, send_image
 
 
 # Функция для обработки сообщений
@@ -15,6 +15,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def default_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await send_image(update, context, 'gpt')
     await send_text(update, context, 'Привет и добро пожаловать 😎')
 
 
