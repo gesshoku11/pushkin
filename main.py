@@ -3,6 +3,7 @@ import datetime
 from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, ContextTypes, CommandHandler
 
+from credentials import BOT_TOKEN
 from util import send_text, send_image
 
 
@@ -20,7 +21,7 @@ async def default_command_handler(update: Update, context: ContextTypes.DEFAULT_
 
 
 
-token = '7714966043:AAHoLDGuylx7uClhr6FcJ_AIWVjuvTzve2M' # TODO Убрать из кода !
+token = BOT_TOKEN
 app = Application.builder().token(token).build()
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
